@@ -16,7 +16,6 @@ module.exports = {
       files: [
         'packages/**/*.js',
         'packages/**/*.ts',
-        './scripts/*.js',
         'src/**/*.js',
         'src/**/*.ts'
       ]

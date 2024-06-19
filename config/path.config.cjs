@@ -10,7 +10,11 @@ const rootPath = join(__dirname, '../');
  */
 const srcriptsRootPath = join(rootPath, 'scripts');
 
+const buildDir = 'dist';
+
 module.exports = {
   rootPath,
-  srcriptsRootPath
+  srcriptsRootPath,
+  buildDir,
+  buildRoot: join(rootPath, buildDir)
 };

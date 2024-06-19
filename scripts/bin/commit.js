@@ -1,6 +1,6 @@
 const bootstrap = require('commitizen/dist/cli/git-cz').bootstrap;
 const { join } = require('path');
-const { rootPath } = require('../../config/path.config.cjs');
+const { rootPath } = require('../config/path.config.cjs');
 const { execSync } = require('child_process');
 
 /**

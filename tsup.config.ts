@@ -1,7 +1,7 @@
-import { Options, defineConfig } from 'tsup'
+import { Options, defineConfig } from 'tsup';
 
-const currentNodeEnv = process.env.NODE_ENV
-const isProd = currentNodeEnv === 'build'
+const currentNodeEnv = process.env.NODE_ENV;
+const isProd = currentNodeEnv === 'build';
 
 const commonConfig: Options = {
   minify: isProd,
@@ -9,26 +9,20 @@ const commonConfig: Options = {
   shims: true,
   clean: true,
   dts: true
-}
+};
 
 export default defineConfig([
   {
-    format: ['esm', 'cjs', 'iife'],
+    format: ['esm', 'iife'],
     entry: ['./src/index.ts'],
     outDir: 'dist/main',
     platform: 'neutral',
-    globalName: 'fy',
+    external: ['react', '@qlover/slice-store'],
+    globalName: 'SliceStore',
     outExtension({ format }) {
-      if (format === 'iife') return { js: '.main.js' }
-      return { js: `.${format}.js` }
+      if (format === 'iife') return { js: '.js' };
+      return { js: `.${format}.js` };
     },
     ...commonConfig
-  },
-  {
-    format: ['esm', 'cjs'],
-    entry: ['./packages/Node/index.ts'],
-    outDir: 'dist/node',
-    platform: 'node',
-    ...commonConfig
   }
-])
+]);
