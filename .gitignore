@@ -43,4 +43,3 @@ public/robots.txt
 public/sitemap*.xml
 dist
 .eslintcache
-examples/
