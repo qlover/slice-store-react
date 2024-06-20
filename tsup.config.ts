@@ -1,14 +1,11 @@
 import { Options, defineConfig } from 'tsup';
 import { loadEnv } from './gulpfile';
 
-<<<<<<< HEAD
 // use import .cjs
 import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const pathConfig = require('./config/path.config.cjs');
+// const require = createRequire(import.meta.url);
+// const pathConfig = require('./config/path.config.cjs');
 
-=======
->>>>>>> f0a6168f0362742191c954901731a17fe1e50e76
 loadEnv();
 
 const env = process.env.NODE_ENV;
