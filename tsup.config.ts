@@ -1,7 +1,16 @@
 import { Options, defineConfig } from 'tsup';
+import { loadEnv } from './gulpfile';
 
-const currentNodeEnv = process.env.NODE_ENV;
-const isProd = currentNodeEnv === 'build';
+// use import .cjs
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const pathConfig = require('./config/path.config.cjs');
+
+loadEnv();
+
+const env = process.env.NODE_ENV;
+console.log('[env is]', env);
+const isProd = env === 'production';
 
 const commonConfig: Options = {
   minify: isProd,
@@ -14,11 +23,10 @@ const commonConfig: Options = {
 export default defineConfig([
   {
     format: ['esm', 'iife'],
-    entry: ['./src/index.ts'],
-    outDir: 'dist/main',
+    entry: ['./packages/main/index.ts'],
+    outDir: pathConfig.buildDir,
     platform: 'neutral',
-    external: ['react', '@qlover/slice-store'],
-    globalName: 'SliceStore',
+    globalName: 'sliceStoreReact',
     outExtension({ format }) {
       if (format === 'iife') return { js: '.js' };
       return { js: `.${format}.js` };

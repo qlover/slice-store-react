@@ -1,3 +1,2 @@
-import { env } from 'config/app.config';
-
-console.log('packages/main env', env);
+export * from './useSliceStore';
+export * from '@qlover/slice-store';

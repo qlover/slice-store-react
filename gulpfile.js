@@ -1,16 +1,33 @@
 import { execSync } from 'child_process';
-import { publishWithLocal } from './scripts/publish.cjs';
+import dotenv from 'dotenv';
 
-const codeFormatting = async () => {
-  await execSync('npm run prettier', { stdio: 'inherit' });
+export const loadEnv = () => {
+  dotenv.config();
 };
 
-export const publishLocal = async () => {
-  publishWithLocal();
+export const format = async () => {
+  execSync('npm run prettier', { stdio: 'inherit' });
+};
+
+export const cleanBuild = async () => {
+  execSync('rimraf dist', { stdio: 'inherit' });
+};
+
+export const cleanDeep = () => {
+  execSync('rimraf node_modules yarn.lock package-lock.json', {
+    stdio: 'inherit'
+  });
+};
+
+export const clean = async () => {
+  cleanBuild();
+  cleanDeep();
 };
 
 export const build = async () => {
-  await codeFormatting();
-  await execSync('npm run clean:build', { stdio: 'inherit' });
-  await execSync('npx tsup', { stdio: 'inherit' });
+  loadEnv();
+  await format();
+  await cleanBuild();
+
+  execSync('npx tsup', { stdio: 'inherit' });
 };

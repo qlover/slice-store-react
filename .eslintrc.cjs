@@ -13,12 +13,11 @@ module.exports = {
     },
     {
       ...require('./config/eslint/base.json'),
-      files: [
-        'packages/**/*.js',
-        'packages/**/*.ts',
-        'src/**/*.js',
-        'src/**/*.ts'
-      ]
+      files: ['packages/**/*.js', 'scripts/**/*.js']
+    },
+    {
+      ...require('./config/eslint/base.ts.json'),
+      files: ['packages/**/*.ts']
     },
     {
       files: ['**/*.test.js', '**/*.spec.js'],
