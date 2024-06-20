@@ -3,17 +3,32 @@
   "version": "1.0.0",
   "description": "A SliceStore for React",
   "type": "module",
-  "main": "./dist/index.js",
   "private": true,
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.esm.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist",
     "package.json",
     "README.md"
   ],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "npx tsc --watch",
     "build": "gulp build",
-    "publish:local": "gulp publishLocal",
+    "format": "gulp format",
+    "clean": "gulp clean",
+    "prettier": "prettier packages --write",
+    "reinit": "npm run clean && yarn",
     "eslint": "eslint packages --ext .js,.ts --cache --fix",
     "prettier": "prettier packages --write",
     "lint": "eslint packages --ext .js,.ts --cache --fix",
@@ -74,7 +89,7 @@
     "typescript": "*"
   },
   "dependencies": {
-    "@qlover/slice-store": "^1.0.4",
+    "@qlover/slice-store": "1.0.5",
     "@types/react": "^18.3.3",
     "react": "^18.3.1"
   }

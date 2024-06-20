@@ -1,6 +1,5 @@
 import { execSync } from 'child_process';
 import dotenv from 'dotenv';
-
 export const loadEnv = () => {
   dotenv.config();
 };
@@ -28,6 +27,5 @@ export const build = async () => {
   loadEnv();
   await format();
   await cleanBuild();
-
   execSync('npx tsup', { stdio: 'inherit' });
 };
