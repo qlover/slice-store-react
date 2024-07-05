@@ -2,5 +2,5 @@
 module.exports = {
   preset: 'ts-jest',
   injectGlobals: true,
-  testEnvironment: 'node'
+  testEnvironment: 'jest-environment-jsdom'
 };
