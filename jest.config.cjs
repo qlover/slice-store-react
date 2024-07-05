@@ -1,6 +1,8 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   preset: 'ts-jest',
-  injectGlobals: true,
-  testEnvironment: 'node'
+  testEnvironment: 'jest-environment-jsdom',
+  transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest'
+  }
 };

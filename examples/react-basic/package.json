@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@qlover/slice-store": "1.0.5",
+    "@qlover/slice-store-react": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -20,7 +21,6 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
-    "@qlover/slice-store-react": "file:../../dist",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",

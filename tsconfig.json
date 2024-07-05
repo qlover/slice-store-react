@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
     // 允许
     "allowJs": true,
     "baseUrl": ".",
@@ -37,7 +38,6 @@
     "./packages",
   ],
   "exclude": [
-    "node_modules",
-    "scripts"
+    "node_modules"
   ]
 }
