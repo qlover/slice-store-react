@@ -1,5 +1,7 @@
 
 
+## [1.0.3](https://github.com/qlover/slice-store-react/compare/1.0.2...1.0.3) (2024-07-05)
+
 ## 1.0.2 (2024-07-05)
 
 
