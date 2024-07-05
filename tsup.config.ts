@@ -1,12 +1,7 @@
 import { Options, defineConfig } from 'tsup';
-import { loadEnv } from './gulpfile';
+import { config } from 'dotenv';
 
-// use import .cjs
-import { createRequire } from 'module';
-// const require = createRequire(import.meta.url);
-// const pathConfig = require('./config/path.config.cjs');
-
-loadEnv();
+config({ path: ['.env.local', '.env'] });
 
 const env = process.env.NODE_ENV;
 console.log('[env is]', env);
@@ -24,9 +19,11 @@ export default defineConfig([
   {
     format: ['esm', 'cjs'],
     entry: ['./packages/main/index.ts'],
-    outDir: 'dist',
-    platform: 'neutral',
+    outDir: 'dist/main',
+    platform: 'browser',
     globalName: 'SliceStoreReact',
+    target: 'es5',
+    external: [],
     outExtension({ format }) {
       if (format === 'iife') return { js: '.js' };
       return { js: `.${format}.js` };
