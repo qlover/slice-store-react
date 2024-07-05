@@ -19,7 +19,7 @@ export default defineConfig([
   {
     format: ['esm', 'cjs'],
     entry: ['./packages/main/index.ts'],
-    outDir: 'dist/main',
+    outDir: 'dist',
     platform: 'browser',
     globalName: 'SliceStoreReact',
     target: 'es5',

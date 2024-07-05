@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
     // 允许
     "allowJs": true,
     "baseUrl": ".",
